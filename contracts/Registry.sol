@@ -2,6 +2,7 @@
 pragma solidity ^0.8.0;
 import "@asteroid-dao/eternal-storage/contracts/IStorage.sol";
 import "@openzeppelin/contracts/access/AccessControlEnumerable.sol";
+
 import "hardhat/console.sol";
 
 contract Registry is AccessControlEnumerable {
@@ -15,12 +16,22 @@ contract Registry is AccessControlEnumerable {
     require(hasRole(EDITOR_ROLE,msg.sender), "only EDITOR can execute");
     _;
   }
+
+  modifier onlyAdmin() {
+    require(hasRole(DEFAULT_ADMIN_ROLE, msg.sender), "only ADMIN can execute");
+    _;
+  }
   
   constructor(address _store, string memory _registry_name) {
     _setupRole(DEFAULT_ADMIN_ROLE, _msgSender());
     _setupRole(EDITOR_ROLE, _msgSender());
     store = _store;
     registry_name = _registry_name;
+  }
+
+  function setStorage(address _addr) public onlyAdmin {
+    require(_addr != store, "address already set");
+    store = _addr;
   }
   
   function add(string memory _name, address _addr) public onlyEditor {
@@ -39,7 +50,8 @@ contract Registry is AccessControlEnumerable {
   
   function get(string memory _name) public view returns (address addr){
     require(addr_index[_name] != 0, "contract doesn't exist");
-    return IStorage(store).getAddress(keccak256(abi.encode(registry_name, _name)));
+    addr = IStorage(store).getAddress(keccak256(abi.encode(registry_name, _name)));
+    require(addr != address(0), "address doesn't exist");
   }
 
   function list() public view returns (string[] memory _strs){
