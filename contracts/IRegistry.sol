@@ -2,6 +2,8 @@
 pragma solidity ^0.8.0;
 
 interface IRegistry {
+
+  function setStorage(address _addr) external;
   
   function add(string memory _name, address _addr) external;
 
