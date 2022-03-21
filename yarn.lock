@@ -2,10 +2,10 @@
 # yarn lockfile v1
 
 
-"@asteroid-dao/eternal-storage@^0.0.1":
-  version "0.0.1"
-  resolved "https://registry.yarnpkg.com/@asteroid-dao/eternal-storage/-/eternal-storage-0.0.1.tgz#2a1d0df031c819fe489a091a7bbad8340a4e9440"
-  integrity sha512-6cCb5uuyuTU6KDPp8g9h5BWJkF5ygyX0aFkSllFn5CgSCy6nXC080xd36KGLDB5MzS1xqMXCXxuyebYctPXigg==
+"@asteroid-dao/eternal-storage@^0.0.2":
+  version "0.0.2"
+  resolved "https://registry.yarnpkg.com/@asteroid-dao/eternal-storage/-/eternal-storage-0.0.2.tgz#f80f55b79cdd071c6e44a1a3961c9e368d17d515"
+  integrity sha512-UOh9hypEhmb1AbPCAXRAh+By6LzFQWwVr724y6qmV8Njzk1Vak9R2emvhyjPvQNwkAy8eGzF7hlRpficJ3vipw==
   dependencies:
     "@openzeppelin/contracts" "^4.5.0"
     big.js "^6.1.1"

@@ -12,16 +12,6 @@ contract Registry is AccessControlEnumerable {
   address store;
   string registry_name;
   
-  modifier onlyEditor() {
-    require(hasRole(EDITOR_ROLE,msg.sender), "only EDITOR can execute");
-    _;
-  }
-
-  modifier onlyAdmin() {
-    require(hasRole(DEFAULT_ADMIN_ROLE, msg.sender), "only ADMIN can execute");
-    _;
-  }
-  
   constructor(address _store, string memory _registry_name) {
     _setupRole(DEFAULT_ADMIN_ROLE, _msgSender());
     _setupRole(EDITOR_ROLE, _msgSender());
@@ -29,19 +19,19 @@ contract Registry is AccessControlEnumerable {
     registry_name = _registry_name;
   }
 
-  function setStorage(address _addr) public onlyAdmin {
+  function setStorage(address _addr) public onlyRole(DEFAULT_ADMIN_ROLE) {
     require(_addr != store, "address already set");
     store = _addr;
   }
   
-  function add(string memory _name, address _addr) public onlyEditor {
+  function add(string memory _name, address _addr) public onlyRole(EDITOR_ROLE) {
     require(addr_index[_name] == 0, "address already exists");
     addrs.push(_name);
     addr_index[_name] = addrs.length;
     IStorage(store).setAddress(keccak256(abi.encode(registry_name, _name)), _addr);
   }
 
-  function remove(string memory _name) public onlyEditor {
+  function remove(string memory _name) public onlyRole(EDITOR_ROLE) {
     require(addr_index[_name] != 0, "contract doesn't exist");
     delete addrs[addr_index[_name] - 1];
     delete addr_index[_name];

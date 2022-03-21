@@ -1,6 +1,6 @@
 {
   "name": "@asteroid-dao/address-registry",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "license": "MIT",
   "devDependencies": {
     "@nomiclabs/hardhat-ethers": "^2.0.5",
@@ -11,7 +11,7 @@
     "hardhat": "^2.8.4"
   },
   "dependencies": {
-    "@asteroid-dao/eternal-storage": "^0.0.1",
+    "@asteroid-dao/eternal-storage": "^0.0.2",
     "@openzeppelin/contracts": "^4.5.0",
     "big.js": "^6.1.1"
   },
