@@ -2,13 +2,14 @@
 # yarn lockfile v1
 
 
-"@asteroid-dao/eternal-storage@^0.0.2":
-  version "0.0.2"
-  resolved "https://registry.yarnpkg.com/@asteroid-dao/eternal-storage/-/eternal-storage-0.0.2.tgz#f80f55b79cdd071c6e44a1a3961c9e368d17d515"
-  integrity sha512-UOh9hypEhmb1AbPCAXRAh+By6LzFQWwVr724y6qmV8Njzk1Vak9R2emvhyjPvQNwkAy8eGzF7hlRpficJ3vipw==
+"@asteroid-dao/eternal-storage@^0.0.4":
+  version "0.0.4"
+  resolved "https://registry.yarnpkg.com/@asteroid-dao/eternal-storage/-/eternal-storage-0.0.4.tgz#49c6cbf21c8d1b6af42676b297e29d58496c1d16"
+  integrity sha512-GoQLJKZmhbiv3E/VecBTvpMLZWdzTjteXzyNC4rQ+mKbIdmp5W4qWm7JbfC5+NuGh0S5x/P29rMUEJe8q4x5WA==
   dependencies:
     "@openzeppelin/contracts" "^4.5.0"
     big.js "^6.1.1"
+    ramda "^0.28.0"
 
 "@ensdomains/ens@^0.4.4":
   version "0.4.5"
@@ -5874,6 +5875,11 @@ querystring@0.2.0:
   version "0.2.0"
   resolved "https://registry.yarnpkg.com/querystring/-/querystring-0.2.0.tgz#b209849203bb25df820da756e747005878521620"
   integrity sha1-sgmEkgO7Jd+CDadW50cAWHhSFiA=
+
+ramda@^0.28.0:
+  version "0.28.0"
+  resolved "https://registry.yarnpkg.com/ramda/-/ramda-0.28.0.tgz#acd785690100337e8b063cab3470019be427cc97"
+  integrity sha512-9QnLuG/kPVgWvMQ4aODhsBUFKOUmnbUnsSXACv+NCQZcHbeb+v8Lodp8OVxtRULN1/xOyYLLaL6npE6dMq5QTA==
 
 randombytes@^2.0.0, randombytes@^2.0.1, randombytes@^2.0.5, randombytes@^2.0.6, randombytes@^2.1.0:
   version "2.1.0"

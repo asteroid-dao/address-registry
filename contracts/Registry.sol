@@ -28,19 +28,19 @@ contract Registry is AccessControlEnumerable {
     require(addr_index[_name] == 0, "address already exists");
     addrs.push(_name);
     addr_index[_name] = addrs.length;
-    IStorage(store).setAddress(keccak256(abi.encode(registry_name, _name)), _addr);
+    IStorage(store).setAddress(abi.encode(registry_name, _name), _addr);
   }
 
   function remove(string memory _name) public onlyRole(EDITOR_ROLE) {
     require(addr_index[_name] != 0, "contract doesn't exist");
     delete addrs[addr_index[_name] - 1];
     delete addr_index[_name];
-    IStorage(store).deleteAddress(keccak256(abi.encode(registry_name, _name)));
+    IStorage(store).deleteAddress(abi.encode(registry_name, _name));
   }
   
   function get(string memory _name) public view returns (address addr){
     require(addr_index[_name] != 0, "contract doesn't exist");
-    addr = IStorage(store).getAddress(keccak256(abi.encode(registry_name, _name)));
+    addr = IStorage(store).getAddress(abi.encode(registry_name, _name));
     require(addr != address(0), "address doesn't exist");
   }
 
